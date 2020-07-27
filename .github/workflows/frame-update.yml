@@ -1,0 +1,28 @@
+name: frame-update
+
+on:
+  push:
+  workflow_dispatch:
+  schedule:
+    - cron: '*/5 * * * *'
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      
+      - name: Grab latest stream frame
+        uses: wei/wget@v1
+        with:
+          args: https://internetmountain.org/m/frame.jpg -O frame.jpg
+      
+      - name: Commit and push
+        run: |-
+          git diff
+          git config --global user.email "readme-bot@rymnd.org"
+          git config --global user.name "README-bot"
+          git diff --quiet || (git add frame.jpg && git commit -m "Update stream frame")
+          git push
+     
