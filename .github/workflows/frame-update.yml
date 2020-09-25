@@ -8,7 +8,7 @@ on:
 
 jobs:
   update:
-    runs-on: [raylas, ubuntu-latest]
+    runs-on: raylas
     steps:
       - name: Checkout
         uses: actions/checkout@v2
