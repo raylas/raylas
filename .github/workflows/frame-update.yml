@@ -14,9 +14,8 @@ jobs:
         uses: actions/checkout@v2
       
       - name: Grab latest stream frame
-        uses: wei/wget@v1
-        with:
-          args: https://internetmountain.org/m/frame.jpg -O frame.jpg
+        run: |-
+          wget https://internetmountain.org/m/frame.jpg -O frame.jpg
       
       - name: Commit and push
         run: |-
