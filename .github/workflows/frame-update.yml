@@ -15,7 +15,7 @@ jobs:
       
       - name: Grab latest stream frame
         run: |-
-          wget https://internetmountain.org/m/frame.jpg -O frame.jpg
+          wget https://internetmountain.org/feed/frame.jpg -O frame.jpg
       
       - name: Commit and push
         run: |-
